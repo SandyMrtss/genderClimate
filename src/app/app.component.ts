@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import { LayerComponent } from './components/layer/layer.component';
 import { RouterOutlet } from '@angular/router';
-import { MapComponent } from "./map/map.component";
+import { MapComponent } from "./components/map/map.component";
 
 @Component({
   selector: 'app-root',
