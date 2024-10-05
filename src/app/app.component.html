@@ -17,15 +17,26 @@
       <h1>The Climate Gap</h1>
       <p>Explore climate gender gap situations:</p>
 
-      <div id="map" class="map-container">
+      <div id="map" class="map-container"></div>
 
       <div class="card">
-        <app-map></app-map>
+        <app-layer 
+          name="Markers Layer" 
+          [active]="markersLayerActive" 
+          (layerToggle)="toggleMarkersLayer($event)">
+        </app-layer>
+
+        <app-layer 
+          name="Circle Layer" 
+          [active]="circleLayerActive" 
+          (layerToggle)="toggleCircleLayer($event)">
+        </app-layer>
+
       </div>
 
     </div>
 
-    </div>
+    <app-map></app-map>
 
   </section>
 
