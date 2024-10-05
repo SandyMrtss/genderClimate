@@ -14,11 +14,8 @@ import { MapComponent } from "./components/map/map.component";
 })
 export class AppComponent implements OnInit {
   private map!: L.Map;
-  private markersLayer!: L.LayerGroup;
-  private circleLayer!: L.LayerGroup;
-  markersLayerActive: boolean = true;
-  circleLayerActive: boolean = true;
-
+  private layerComponent: LayerComponent = new LayerComponent();
+  
   ngOnInit() {
     this.initMap();
   }
@@ -29,45 +26,7 @@ export class AppComponent implements OnInit {
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 
-    this.initLayers();
+    this.layerComponent.addMarkers(this.map);
   }
-
-  private initLayers(): void {
-    this.markersLayer = L.layerGroup().addTo(this.map);
-    this.circleLayer = L.layerGroup().addTo(this.map);
-
-    L.marker([51.5, -0.09]).addTo(this.markersLayer)
-      .bindPopup('A sample marker!')
-      .openPopup();
-
-    L.marker([51.51, -0.1]).addTo(this.markersLayer)
-      .bindPopup('Another marker!');
-
-    L.circle([51.508, -0.11], {
-      color: 'red',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
-    }).addTo(this.circleLayer);
-  }
-
-  toggleMarkersLayer(active: boolean): void {
-    this.markersLayerActive = active;
-    if (active) {
-      this.map.addLayer(this.markersLayer);
-    } else {
-      this.map.removeLayer(this.markersLayer);
-    }
-  }
-
-  toggleCircleLayer(active: boolean): void {
-    this.circleLayerActive = active;
-    if (active) {
-      this.map.addLayer(this.circleLayer);
-    } else {
-      this.map.removeLayer(this.circleLayer);
-    }
-  }
-
   
 }

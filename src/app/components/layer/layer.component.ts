@@ -11,12 +11,16 @@ import * as L from 'leaflet';
 })
 
   export class LayerComponent {
-  @Input() name!: string;
-  @Input() active: boolean = false;
-  @Output() layerToggle = new EventEmitter<boolean>();
+  
+  private markersLayer!: L.LayerGroup;
 
-  toggleLayer() {
-    this.active = !this.active;
-    this.layerToggle.emit(this.active);
+
+  public addMarkers(map: L.Map): L.Map{
+    this.markersLayer = L.layerGroup().addTo(map);
+
+    L.marker([0,0]).addTo(this.markersLayer)
+      .bindPopup('holi')
+      .openPopup();
+    return map;
   }
 }
