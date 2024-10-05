@@ -21,8 +21,9 @@ export class AppComponent implements OnInit {
   }
 
   private initMap(): void {
-    this.map = L.map('map').setView([0.00, 0.00], 1.5);
+    this.map = L.map('map').setView([30, 0.00], 1.5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom:8,
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 
