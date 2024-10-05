@@ -3,17 +3,17 @@ import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 import { LayerComponent } from './components/layer/layer.component';
 import { RouterOutlet } from '@angular/router';
-import { MapComponent } from "./map/map.component";
+import { MapComponent } from './components/map/map.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, LayerComponent, MapComponent],
+  imports: [RouterOutlet, CommonModule, MapComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent implements OnInit {
-  private map!: L.Map;
+  private map!: MapComponent;
   private markersLayer!: L.LayerGroup;
   private circleLayer!: L.LayerGroup;
   markersLayerActive: boolean = true;
@@ -24,15 +24,11 @@ export class AppComponent implements OnInit {
   }
 
   private initMap(): void {
-    this.map = L.map('map').setView([51.505, -0.09], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(this.map);
-
-    this.initLayers();
+    this.map = new MapComponent();
+    /*this.initLayers();*/
   }
 
-  private initLayers(): void {
+ /* private initLayers(): void {
     this.markersLayer = L.layerGroup().addTo(this.map);
     this.circleLayer = L.layerGroup().addTo(this.map);
 
@@ -67,5 +63,5 @@ export class AppComponent implements OnInit {
     } else {
       this.map.removeLayer(this.circleLayer);
     }
-  }
+  }*/
 }
