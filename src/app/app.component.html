@@ -20,22 +20,9 @@
 
       <div id="map" class="map-container"></div>
 
-      <div class="card">
-        <app-layer 
-          name="Markers Layer" 
-          [active]="markersLayerActive" 
-          (layerToggle)="toggleMarkersLayer($event)">
-        </app-layer>
-
-        <app-layer 
-          name="Circle Layer" 
-          [active]="circleLayerActive" 
-          (layerToggle)="toggleCircleLayer($event)">
-        </app-layer>
 
       </div>
 
-    </div>
 
     <app-map></app-map>
 
