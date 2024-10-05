@@ -1,27 +1,45 @@
 <main class="main">
-  <div class="content">
+
+  <header>
+    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+     
+      <div>
+          <img src="/public/assets/img/logo.png"  alt="...">
+      </div>
+    
+    </nav>
+  </header>
+
+  <section class="content">
+    
     <div class="container">
-      <h1>Welcome to Our Modern Map Website</h1>
-      <p>Explore the world with our interactive map!</p>
+
+      <h1>The Climate Gap</h1>
+      <p>Explore climate gender gap situations:</p>
+
       <div id="map" class="map-container"></div>
+
       <div class="card">
         <app-layer 
           name="Markers Layer" 
           [active]="markersLayerActive" 
           (layerToggle)="toggleMarkersLayer($event)">
         </app-layer>
+
         <app-layer 
           name="Circle Layer" 
           [active]="circleLayerActive" 
           (layerToggle)="toggleCircleLayer($event)">
         </app-layer>
+
       </div>
-      <div style="margin-top: 20px;">
-        <a href="https://angular.dev/overview" target="_blank" class="button">Learn more about Angular</a>
-      </div>
+
     </div>
+
     <app-map></app-map>
-  </div>
+
+  </section>
+
 </main>
 
 <router-outlet />
