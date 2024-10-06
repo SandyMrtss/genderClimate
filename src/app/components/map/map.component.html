@@ -1,3 +1,32 @@
-<div id="map" class="map">
+<div class="main">
+    <div style="padding: 40px;"></div>
+    <h3>Where should we act first?</h3>
+    <p>Add the following information</p>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="floodLayerCB" (change)='addFloodLayer($event)'>
+        <label class="form-check-label" for="floodLayerCB">
+          Flood risk
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="droughtLayerCB" (change)='addDroughtLayer($event)'>
+        <label class="form-check-label" for="droughtLayerCB">
+          Drought risk
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="foodInsecurityLayerCB" (change)='addFoodInsecurityLayer($event)'>
+        <label class="form-check-label" for="foodInsecurityLayerCB">
+          Food insecurity risk
+        </label>
+    </div>
+    <div class="form-check">
+        <input class="form-check-input" type="checkbox" value="" id="socioEconomicLayerCB" (change)='addSocioEconomicLayer($event)'>
+        <label class="form-check-label" for="socioEconomicLayerCB">
+          Socio Economic Development 
+        </label>
+    </div>
+        <div id="map" class="map">
+    </div>
 </div>
 <router-outlet></router-outlet>

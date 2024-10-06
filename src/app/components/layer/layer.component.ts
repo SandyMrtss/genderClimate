@@ -36,19 +36,15 @@ export class LayerComponent implements OnInit {
 
     this.markersLayer = L.layerGroup().addTo(map);
 
-    L.marker([7.8731, 80.7718]).addTo(this.markersLayer)
-      .bindPopup('.');
-
     const popupContentKatrina = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto; padding-bottom: 20px"> 
-    <h6> Hurricane Katrina </h6> 
-    <p> A classist, racist and gendered issue.</p>
-    <p> Most of the victims trapped were Afro-American women with their children, the poorest demographic group in that part of the country.</p> 
-    <button id="redirectKatrina" style="position: absolute; bottom: 10px; margin-top: 40px;">Learn more</button>
+    <h5> Hurricane Katrina </h5> 
+    <p> <b>49% of all fatalities</b> were poor women over 75. They were less able to evacuate due to limited resources, health issues, and social isolation <p>
+    <button id="redirectKatrina" type="button" class="btn btn-outline-info btn-sm" style="position: absolute; bottom: 10px; margin-top: 40px;">Learn more</button>
     </div>`;
 
     const marker1 = L.marker([30.211, -89.162]).addTo(this.markersLayer)
       .bindPopup(popupContentKatrina);
-
+ 
     marker1.on('popupopen', () => {
       const button = document.getElementById('redirectKatrina');
       if (button) {
@@ -61,10 +57,11 @@ export class LayerComponent implements OnInit {
     const popupContentBangladesh = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto;"> 
     <h5> Bangladesh Floodings </h5> 
     <img src="/assets/img/bangladesh.JPG" style="width: 100%; height: auto;"/> 
-    <p>In 1991, during cyclone disasters, 90% of the 140,000 people who died were women because they were not taught how to swim. </p> 
+    <p>In 1991, during cyclone disasters, <b>90%</b> of the 140,000 people who died were women because they were not taught how to swim. </p> 
     </div>`;
     L.marker([23.68, 90.35]).addTo(this.markersLayer).bindPopup(popupContentBangladesh);
 
+    L.marker([7.8731, 80.7718]).addTo(this.markersLayer);
     L.marker([13.736, 100.523]).addTo(this.markersLayer);
     L.marker([1.286, 36.8219]).addTo(this.markersLayer);
     L.marker([-11.95,-75.6]).addTo(this.markersLayer);

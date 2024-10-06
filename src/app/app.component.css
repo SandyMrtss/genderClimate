@@ -1,3 +1,21 @@
 img {
     margin-left: 1rem;
+    margin: auto;
+}
+
+main {
+    display: flex;
+}
+
+#navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    justify-content: center;
+}
+
+#navbar img {
+    display: flex-start;
+    flex-direction: row;
 }
