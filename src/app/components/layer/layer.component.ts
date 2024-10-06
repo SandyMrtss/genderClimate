@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { HttpClient, HttpHandler } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 
@@ -22,21 +21,46 @@ export class LayerComponent {
     L.marker([7.8731, 80.7718]).addTo(this.markersLayer)
       .bindPopup('.');
 
-    L.marker([30.211, -89.162]).addTo(this.markersLayer)
-      .bindPopup('.');
+    const popupContentKatrina = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto; padding-bottom: 20px"> 
+    <h6> Hurricane Katrina </h6> 
+    <p> A classist, racist and gendered issue.</p>
+    <p> Most of the victims trapped were Afro-American women with their children, the poorest demographic group in that part of the country.</p> 
+    <button id="redirectKatrina" style="position: absolute; bottom: 10px; margin-top: 40px;">Learn more</button>
+    </div>`;
 
-    L.marker([13.736, 100.523]).addTo(this.markersLayer)
-      .bindPopup('.');
+    const marker1 = L.marker([30.211, -89.162]).addTo(this.markersLayer)
+      .bindPopup(popupContentKatrina);
 
-    L.marker([1.286, 36.8219]).addTo(this.markersLayer)
-      .bindPopup('.');
+    marker1.on('popupopen', () => {
+      const button = document.getElementById('redirectKatrina');
+      if (button) {
+        button.onclick = () => {
+          window.open('https://iwpr.org/women-disasters-and-hurricane-katrina/', '_blank'); // Redirects to the specified URL
+        };
+      }
+    });
 
-    const popupContent = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto;"> 
+    const popupContentBangladesh = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto;"> 
     <h5> Bangladesh Floodings </h5> 
     <img src="/assets/img/bangladesh.JPG" style="width: 100%; height: auto;"/> 
     <p>In 1991, during cyclone disasters, 90% of the 140,000 people who died were women because they were not taught how to swim. </p> 
     </div>`;
-    L.marker([23.68,90.35]).addTo(this.markersLayer).bindPopup(popupContent);
+    L.marker([23.68,90.35]).addTo(this.markersLayer).bindPopup(popupContentBangladesh);
+
+    L.marker([13.736, 100.523]).addTo(this.markersLayer);
+    L.marker([1.286, 36.8219]).addTo(this.markersLayer);
+    L.marker([-11.95,-75.6]).addTo(this.markersLayer);
+    L.marker([17, -96]).addTo(this.markersLayer);
+    L.marker([32.9, -7.9]).addTo(this.markersLayer);
+    L.marker([-17, 45.5]).addTo(this.markersLayer);
+    L.marker([32.6, 79]).addTo(this.markersLayer);
+    L.marker([30.6, 21.5]).addTo(this.markersLayer);
+
+    L.marker([15.25, 29.86]).addTo(this.markersLayer);
+    L.marker([-5.8,107.6]).addTo(this.markersLayer);
+    L.marker([14.7,121.54]).addTo(this.markersLayer);
+    L.marker([2.38,19.94]).addTo(this.markersLayer);
+    L.marker([5.35, -76.31]).addTo(this.markersLayer)
 
     return map;
   }
