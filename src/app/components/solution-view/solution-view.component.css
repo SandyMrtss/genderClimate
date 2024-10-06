@@ -1,0 +1,38 @@
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card {
+    width: 400px;
+    margin: 0 3%;
+}
+
+.card-body {
+    flex-grow: 1;
+}
+
+.button-container {
+    margin-top: auto;
+}
+
+.carousel {
+    margin: 20px 0;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: black;
+    border-radius: 50%;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    filter: invert(1);
+}
+
+.carousel-inner {
+    max-width: 800px;
+    margin: auto;
+}
