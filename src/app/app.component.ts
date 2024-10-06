@@ -16,6 +16,7 @@ export class AppComponent implements OnInit {
   private map!: L.Map;
   private layerComponent: LayerComponent = new LayerComponent();
   
+
   ngOnInit() {
     this.initMap();
   }
@@ -28,5 +29,6 @@ export class AppComponent implements OnInit {
 
     this.layerComponent.addMarkers(this.map);
   }
-  
+
+
 }
