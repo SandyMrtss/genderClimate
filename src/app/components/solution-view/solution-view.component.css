@@ -1,16 +1,16 @@
-.carousel-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .card {
     width: 400px;
     margin: 0 3%;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card-body {
     flex-grow: 1;
+}
+
+.card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 .button-container {
@@ -19,6 +19,14 @@
 
 .carousel {
     margin: 20px 0;
+}
+
+.carousel-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    padding: 30px;
 }
 
 .carousel-control-prev-icon,
@@ -33,6 +41,6 @@
 }
 
 .carousel-inner {
-    max-width: 800px;
+    max-width: 900px;
     margin: auto;
 }
