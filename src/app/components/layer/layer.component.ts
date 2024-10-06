@@ -36,8 +36,6 @@ export class LayerComponent implements OnInit {
 
     this.markersLayer = L.layerGroup().addTo(map);
 
-    L.marker([7.8731, 80.7718]).addTo(this.markersLayer);
-
     const popupContentKatrina = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto; padding-bottom: 20px"> 
     <h5> Hurricane Katrina </h5> 
     <p> <b>49% of all fatalities</b> were poor women over 75. They were less able to evacuate due to limited resources, health issues, and social isolation <p>
@@ -63,6 +61,7 @@ export class LayerComponent implements OnInit {
     </div>`;
     L.marker([23.68, 90.35]).addTo(this.markersLayer).bindPopup(popupContentBangladesh);
 
+    L.marker([7.8731, 80.7718]).addTo(this.markersLayer);
     L.marker([13.736, 100.523]).addTo(this.markersLayer);
     L.marker([1.286, 36.8219]).addTo(this.markersLayer);
     L.marker([-11.95,-75.6]).addTo(this.markersLayer);
