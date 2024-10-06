@@ -29,8 +29,8 @@ export class MapComponent implements OnInit {
       }),
     });
     this.addMyLayer();
+    
   }
-
   addMyLayer(): void {
     this.map.addLayer(new TileLayer({
       source: new TileWMS({

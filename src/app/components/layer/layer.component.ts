@@ -19,9 +19,6 @@ export class LayerComponent {
 
     this.markersLayer = L.layerGroup().addTo(map);
 
-    L.marker([23.68590, 90.3563]).addTo(this.markersLayer)
-      .bindPopup('Bangladesh');
-
     L.marker([7.8731, 80.7718]).addTo(this.markersLayer)
       .bindPopup('.');
 
@@ -33,6 +30,13 @@ export class LayerComponent {
 
     L.marker([1.286, 36.8219]).addTo(this.markersLayer)
       .bindPopup('.');
+
+    const popupContent = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto;"> 
+    <h5> Bangladesh Floodings </h5> 
+    <img src="/assets/img/bangladesh.JPG" style="width: 100%; height: auto;"/> 
+    <p>In 1991, during cyclone disasters, 90% of the 140,000 people who died were women because they were not taught how to swim. </p> 
+    </div>`;
+    L.marker([23.68,90.35]).addTo(this.markersLayer).bindPopup(popupContent);
 
     return map;
   }
