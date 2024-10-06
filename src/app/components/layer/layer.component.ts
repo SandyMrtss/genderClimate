@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 
