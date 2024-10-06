@@ -1,4 +1,5 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { HttpClient, HttpHandler } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
 
@@ -10,12 +11,26 @@ import * as L from 'leaflet';
   styleUrl: './layer.component.css'
 })
 
-  export class LayerComponent {
-  
+export class LayerComponent {
+
   private markersLayer!: L.LayerGroup;
 
-  public addMarkers(map: L.Map): L.Map{
+  public addMarkers(map: L.Map): L.Map {
+
     this.markersLayer = L.layerGroup().addTo(map);
+
+    L.marker([7.8731, 80.7718]).addTo(this.markersLayer)
+      .bindPopup('.');
+
+    L.marker([30.211, -89.162]).addTo(this.markersLayer)
+      .bindPopup('.');
+
+    L.marker([13.736, 100.523]).addTo(this.markersLayer)
+      .bindPopup('.');
+
+    L.marker([1.286, 36.8219]).addTo(this.markersLayer)
+      .bindPopup('.');
+
     const popupContent = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto;"> 
     <h5> Bangladesh Floodings </h5> 
     <img src="/assets/img/bangladesh.JPG" style="width: 100%; height: auto;"/> 
@@ -25,4 +40,6 @@ import * as L from 'leaflet';
 
     return map;
   }
+
+
 }

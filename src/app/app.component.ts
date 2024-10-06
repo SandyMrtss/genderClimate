@@ -29,5 +29,6 @@ export class AppComponent implements OnInit {
 
     this.layerComponent.addMarkers(this.map);
   }
-  
+
+
 }
