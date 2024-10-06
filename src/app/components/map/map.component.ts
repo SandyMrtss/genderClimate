@@ -5,22 +5,26 @@ import View from 'ol/View';
 import { OSM } from 'ol/source';
 import TileLayer from 'ol/layer/Tile';
 import TileWMS from 'ol/source/TileWMS';
+import { Router, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-map',
   standalone: true,
+  imports: [RouterOutlet, RouterModule],
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
   public map!: Map
 
+  constructor(private router: Router) { };
+
   ngOnInit(): void {
     this.map = new Map({
       layers: [
         new TileLayer({
           source: new OSM(),
-        }),
+        })
       ],
       target: 'map',
       view: new View({
@@ -28,10 +32,9 @@ export class MapComponent implements OnInit {
         zoom: 2, maxZoom: 18,
       }),
     });
-    this.addMyLayer();
-    
   }
-  addMyLayer(): void {
+
+  addMyLayer(): Map {
     this.map.addLayer(new TileLayer({
       source: new TileWMS({
         url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
@@ -40,5 +43,6 @@ export class MapComponent implements OnInit {
         transition: 0,
       })
     }))
+    return this.map;
   }
 }
