@@ -15,7 +15,8 @@ import { MapComponent } from "./components/map/map.component";
 export class AppComponent implements OnInit {
   private map!: L.Map;
   private layerComponent: LayerComponent = new LayerComponent();
-  
+  private mapComponent: MapComponent = new MapComponent();
+
   ngOnInit() {
     this.initMap();
   }
@@ -23,7 +24,7 @@ export class AppComponent implements OnInit {
   private initMap(): void {
     this.map = L.map('map').setView([30, 0.00], 1.5);
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      maxZoom:8,
+      maxZoom:7,
       attribution: '© OpenStreetMap contributors'
     }).addTo(this.map);
 

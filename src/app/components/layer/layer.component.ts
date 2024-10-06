@@ -17,8 +17,8 @@ import { HttpClient } from '@angular/common/http';
 
   public addMarkers(map: L.Map): L.Map{
     this.markersLayer = L.layerGroup().addTo(map);
-    const popupContent = `<div style="max-width: 300px; max-height: 200px; overflow-y: auto;"> 
-    <h3> Bangladesh Floodings </h3> 
+    const popupContent = `<div style="max-width: 200px; max-height: 200px; overflow-y: auto;"> 
+    <h5> Bangladesh Floodings </h5> 
     <img src="/assets/img/bangladesh.JPG" style="width: 100%; height: auto;"/> 
     <p>In 1991, during cyclone disasters, 90% of the 140,000 people who died were women because they were not taught how to swim. </p> 
     </div>`;

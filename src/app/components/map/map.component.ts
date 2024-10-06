@@ -29,13 +29,13 @@ export class MapComponent implements OnInit {
       }),
     });
     this.addMyLayer();
+    
   }
-
   addMyLayer(): void {
     this.map.addLayer(new TileLayer({
       source: new TileWMS({
         url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
-        params: { 'LAYERS': 'crop-climate:crop-climate-effects-climate-global-food-production', 'TILED': true },
+        params: { 'LAYERS': 'gpw-v3:gpw-v3-population-density_2000', 'TILED': true },
         serverType: 'geoserver',
         transition: 0,
       })
