@@ -1,44 +1,30 @@
 <main class="main">
-
-  <header>
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-     
-      <div>
-          <img src="/public/assets/img/logo.png"  alt="...">
-      </div>
-    
-    </nav>
-  </header>
-
-  <section class="content">
-    
-    <div class="container">
-
-      <h1>The Climate Gap</h1>
-      <p>Explore climate gender gap situations:</p>
-
-      <div id="map" class="map-container"></div>
-
-      <div class="card">
-        <app-layer 
-          name="Markers Layer" 
-          [active]="markersLayerActive" 
-          (layerToggle)="toggleMarkersLayer($event)">
-        </app-layer>
-
-        <app-layer 
-          name="Circle Layer" 
-          [active]="circleLayerActive" 
-          (layerToggle)="toggleCircleLayer($event)">
-        </app-layer>
-
-      </div>
-
+  <nav class="navbar navbar-expand-lg  bg-dark fixed-top" data-bs-theme="dark">
+    <div>
+      <a class="navbar-brand" href="#">
+        <img src="/assets/img/logoblanco.png" style="width: 100px; height: auto;">
+      </a>
     </div>
-
-    <app-map></app-map>
-
-  </section>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLink="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="challenges">Challenges</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="layers">Hotspots</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="solutions">Solutions</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="about-us">About Us</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
 </main>
 
