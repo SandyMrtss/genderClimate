@@ -15,7 +15,6 @@ import { MapComponent } from "./components/map/map.component";
 export class AppComponent implements OnInit {
   private map!: L.Map;
   private layerComponent: LayerComponent = new LayerComponent();
-  private mapComponent: MapComponent = new MapComponent();
 
   ngOnInit() {
     this.initMap();

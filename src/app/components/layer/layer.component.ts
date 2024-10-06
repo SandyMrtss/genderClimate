@@ -1,7 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import * as L from 'leaflet';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-layer',
