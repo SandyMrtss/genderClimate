@@ -15,9 +15,47 @@ import { Router, RouterModule, RouterOutlet } from '@angular/router';
   styleUrls: ['./map.component.css']
 })
 export class MapComponent implements OnInit {
-  public map!: Map
 
-  constructor(private router: Router) { };
+  floodLayer: TileLayer = new TileLayer({
+    source: new TileWMS({
+      url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
+      params: { 'LAYERS': 'ndh:ndh-flood-hazard-frequency-distribution', 'TILED': true },
+      serverType: 'geoserver',
+      transition: 0,
+    })
+  });
+
+
+  droughtLayer: TileLayer = new TileLayer({
+    source: new TileWMS({
+      url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
+      params: { 'LAYERS': 'ndh:ndh-drought-hazard-frequency-distribution', 'TILED': true },
+      serverType: 'geoserver',
+      transition: 0,
+    })
+  });
+
+  
+  foodInsecurityLayer: TileLayer = new TileLayer({
+    source: new TileWMS({
+      url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
+      params: { 'LAYERS': 'crop-climate:crop-climate-effects-climate-global-food-production', 'TILED': true },
+      serverType: 'geoserver',
+      transition: 0,
+    })
+  });
+
+
+  socioEconomicLayer:TileLayer = new TileLayer({
+    source: new TileWMS({
+      url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
+      params: { 'LAYERS': 'povmap:povmap-global-subnational-prevalence-child-malnutrition', 'TILED': true },
+      serverType: 'geoserver',
+      transition: 0,
+    })
+  });	
+
+  public map!: Map
 
   ngOnInit(): void {
     this.map = new Map({
@@ -34,15 +72,53 @@ export class MapComponent implements OnInit {
     });
   }
 
-  addMyLayer(): Map {
-    this.map.addLayer(new TileLayer({
-      source: new TileWMS({
-        url: 'https://sedac.ciesin.columbia.edu/geoserver/wms',
-        params: { 'LAYERS': 'gpw-v3:gpw-v3-population-density_2000', 'TILED': true },
-        serverType: 'geoserver',
-        transition: 0,
-      })
-    }))
+  addFloodLayer(event: any): void {
+    this.floodLayer.setOpacity(0.6);
+    if(event.target.checked){
+      this.addLayer(this.floodLayer)
+    }
+    else {
+      this.removeLayer(this.floodLayer)
+    }
+  }
+
+  addDroughtLayer(event: any): void {
+    this.droughtLayer.setOpacity(0.5);
+    if(event.target.checked){
+      this.addLayer(this.droughtLayer)
+    }
+    else {
+      this.removeLayer(this.droughtLayer)
+    }
+  }
+
+  addFoodInsecurityLayer(event: any): void {
+    this.foodInsecurityLayer.setOpacity(0.5);
+    if(event.target.checked){
+      this.addLayer(this.foodInsecurityLayer)
+    }
+    else {
+      this.removeLayer(this.foodInsecurityLayer)
+    }
+  }
+
+  addSocioEconomicLayer(event: any): void {
+    this.socioEconomicLayer.setOpacity(0.5);
+    if(event.target.checked){
+      this.addLayer(this.socioEconomicLayer)
+    }
+    else {
+      this.removeLayer(this.socioEconomicLayer)
+    }
+  }
+
+  addLayer(layer: TileLayer): Map {
+    this.map.addLayer(layer)
+    return this.map;
+  }
+
+  removeLayer(layer: TileLayer): Map {
+    this.map.removeLayer(layer)
     return this.map;
   }
 }
